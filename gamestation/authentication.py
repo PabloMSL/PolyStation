@@ -8,7 +8,7 @@ db = initialize_firebase()
 
 class FirebaseAuthentication(BaseAuthentication):
     """
-    Lerr el token JWT del encabezado. Lo va a validar con firebase y va a extraer e UID del usuario
+    Lerr el token JWT del encabezado. Lo va a validar con firebase y va a extraer el UID del usuario
     """
     def authenticate(self, request):
        # Extraemos el token
@@ -31,7 +31,14 @@ class FirebaseAuthentication(BaseAuthentication):
             uid = decoded_token.get('uid')
             email = decoded_token.get('email')
             user_profile = db.collection('perfiles').document(uid).get()
-            rol = user_profile.to_dict().get('rol', 'aprendiz') if user_profile.exists else 'Aprendiz'
+            rol = decoded_token.get('rol')
+
+            if not rol:
+                user_doc = db.collection('perfiles').document(uid).get()
+                if user_doc.exists:
+                    rol = user_doc.to_dict().get('rol', 'cliente')
+                else:
+                    rol = 'cliente'
             # Usuario
             class FirebaseUser:
                def __init__(self, uid, rol, email):
@@ -39,6 +46,7 @@ class FirebaseAuthentication(BaseAuthentication):
                    self.rol = rol
                    self.email = email
                    self.is_authenticated = True
+                   self.is_active = True
             
             return(FirebaseUser(uid, rol, email), decoded_token)
        except Exception as e:
