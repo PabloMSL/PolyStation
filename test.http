@@ -1,0 +1,108 @@
+### Registro
+POST http://127.0.0.1:8000/apis/registro/
+Content-Type: application/json
+
+{
+    "username":"JugadorPro",
+    "rol":"comprador",
+    "email" : "jugador@gmail.com",
+    "password" : "123456"
+}
+
+### Login
+POST http://127.0.0.1:8000/auth/login/auth/login/
+Content-Type: application/json
+
+{
+    "username": "JugadorPro",
+    "email": "jugador1@gmail.com",
+    "password": "123456"
+}
+
+### Ver biblioteca
+GET http://127.0.0.1:8000/biblioteca/
+Authorization: Bearer
+
+### Comprar 
+POST http://127.0.0.1:8000/comprar/abc123/
+Content-Type: application/json
+Authorization: Bearer
+{
+    "juego_id": "abc123"
+}
+
+### Reseña
+POST http://127.0.0.1:8000/resena/abc123/
+Content-Type: application/json
+Authorization: Bearer TU_TOKEN_AQUI
+
+{
+    "comentario": "Excelente juego, muy entretenido",
+    "calificacion": 5
+}
+
+### Registro Distribuidor
+POST http://127.0.0.1:8000/registro-distribuidor/
+Content-Type: application/json
+
+{
+    "email" : "distribuidor@gmail.com",
+    "password" : "123456"
+}
+
+### Login distribuidor
+POST http://127.0.0.1:8000/login-distribuidor/
+Content-Type: application/json
+
+{
+    "email": "distribuidor@gmail.com",
+    "password": "123456"
+}
+
+### Dashboard del distribuidor
+GET http://127.0.0.1:8000/dashboard/
+Authorization: Bearer 
+
+### Listar juegos del distribuidor
+GET http://127.0.0.1:8000/mis-juegos/
+Authorization: Bearer 
+
+### Crear un juego
+POST http://127.0.0.1:8000/crear-juego/
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    "titulo": "Mario",
+    "descripcion": "Un juego de plataformas",
+    "precio": 29.99,
+    "genero": "Plataformero"
+}
+
+### Editar un juego
+PUT http://127.0.0.1:8000/editar-juego/abc123/
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    "titulo": "Mario 2",
+    "descripcion": "Versión mejorada",
+    "precio": 19.99,
+    "genero": "Plataformero"
+}
+
+### Eliminar un juego
+DELETE http://127.0.0.1:8000/eliminar-juego/abc123/
+Authorization: Bearer 
+
+### 4 subir imagen a firestore
+POST http://127.0.0.1:8000/api/perfil/foto/
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjJhYWM0MWY3NTA4OGZlOGUwOWEwN2Q0NDRjZmQ2YjhjZTQ4MTJhMzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYXBpLWFkc28iLCJhdWQiOiJhcGktYWRzbyIsImF1dGhfdGltZSI6MTc3MjQ2OTIxMCwidXNlcl9pZCI6IkllTk00NUVpZ2tXUGg0QTg1RE93eUJtS29sNDIiLCJzdWIiOiJJZU5NNDVFaWdrV1BoNEE4NURPd3lCbUtvbDQyIiwiaWF0IjoxNzcyNDY5MjEwLCJleHAiOjE3NzI0NzI4MTAsImVtYWlsIjoiYXByZW5kaXozQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJhcHJlbmRpejNAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.X5FJSLkHx5qLMhMIVUoChyATVSgbH-VZ_veiHdWX8jc-cMfyyEnJWTUQbU6dxUC451awbgj9Ezdt5nXeWyhlKq6oPnromzjgymcYOfuTJCJ-c7mlqdo4qSlSejZTWP4QVDg4hL6iZqE0c9vzRvFKo6HGHUdZFIxk0Y5N9bzgpeqBJkHx1aQkZtl5h6XOTyVaD0j3xyn26-OOjNMKu7SIQOoWxaw7yoN0RuPbGuyoVQjCqeZ8EE-wbwEVQsljERQSbgJcUNTwPRP0WusmT-Ie_DTRgNB7UBhkL5GIo6LQyeKTu715E41zJMENdcqGPk0bbUZ3_3iyxUb9DNKjYLEB-w
+Content-Type: multipart/form-data; boundary=MiBoundary
+
+--MiBoundary
+Content-Disposition: form-data; name="imagen"; filename="avatar.jpeg"
+Content-Type: image/jpeg
+
+< C:\Users\SENA\Desktop\christian2\donkey.jpeg
+--MiBoundary--
