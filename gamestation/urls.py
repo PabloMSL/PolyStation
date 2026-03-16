@@ -1,24 +1,28 @@
 from django.urls import path
-from .views import JuegosApiView, ReseñasApiView, TicketsApiView, FondosApiView
-from .views_auth import RegistroAPIView, LoginApiView
-from .views_perfil import PerfilImagenAPIview
+from .views_comprador import *
+from .views_distribuidor import *
 
 urlpatterns = [
-    path('auth/registro/', RegistroAPIView.as_view(), name='api_registro'),
-    path('auth/login/', LoginApiView.as_view(), name='api_login'),
 
-    # Juegos
-    path('Juegos/', JuegosApiView.as_view(), name='Juegos'),
-    path('Juegos/<str:pk>/', JuegosApiView.as_view(), name="put1"),
+# HOME
 
-    #Reseñas
-    path('Reseñas/', ReseñasApiView.as_view(), name='Reseñas'),
-    path('Reseñas/<str:pk>/', ReseñasApiView.as_view(), name="put2"),
+path('', catalogo, name='catalogo'),
 
-    path('Fondos/<str:pk>/', FondosApiView.as_view(), name="put3"),
+# COMPRADOR
 
-    path('Tickets/', TicketsApiView.as_view(), name='Tickets'),
-    path('Tickets/<str:pk>/', TicketsApiView.as_view(), name="put4"),
-    
-    path("perfil/foto/", PerfilImagenAPIview.as_view(), name="apiperfilfoto")
+path('registro/', registro_comprador, name='registro_comprador'),
+path('login/', login_comprador, name='login_comprador'),
+path('biblioteca/', biblioteca, name='biblioteca'),
+path('comprar/<str:juego_id>/', comprar_juego, name='comprar_juego'),
+path('resena/<str:juego_id>/', crear_resena, name='crear_resena'),
+
+# DISTRIBUIDOR
+
+path('registro-distribuidor/', registro_distribuidor, name='registro_distribuidor'),
+path('login-distribuidor/', login_distribuidor, name='login_distribuidor'),
+path('dashboard/', dashboard_distribuidor, name='dashboard_distribuidor'),
+path('mis-juegos/', listar_juegos_distribuidor, name='listar_juegos_distribuidor'),
+path('crear-juego/', crear_juego, name='crear_juego'),
+path('editar-juego/<str:juego_id>/', editar_juego, name='editar_juego'),
+path('eliminar-juego/<str:juego_id>/', eliminar_juego, name='eliminar_juego'),
 ]

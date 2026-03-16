@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from .authentication import FirebaseAuthentication
-from backend.firebase_config import initialize_firebase
+from principalstation.firebase_config import initialize_firebase
 
 db = initialize_firebase()
 

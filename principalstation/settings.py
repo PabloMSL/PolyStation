@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'EightBitconnect.urls'
+ROOT_URLCONF = 'principalstation.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'EightBitconnect.wsgi.application'
+WSGI_APPLICATION = 'principalstation.wsgi.application'
 
 
 # Database
