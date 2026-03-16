@@ -5,16 +5,17 @@ Content-Type: application/json
 {
     "username":"JugadorPro",
     "rol":"comprador",
-    "email" : "jugador@gmail.com",
+    "email" : "jugador1@gmail.com",
     "password" : "123456"
 }
 
 ### Login
-POST http://127.0.0.1:8000/auth/login/auth/login/
+POST http://127.0.0.1:8000/apis/login/
 Content-Type: application/json
 
 {
     "username": "JugadorPro",
+    "rol": "comprador",
     "email": "jugador1@gmail.com",
     "password": "123456"
 }

@@ -36,9 +36,9 @@ class FirebaseAuthentication(BaseAuthentication):
             if not rol:
                 user_doc = db.collection('perfiles').document(uid).get()
                 if user_doc.exists:
-                    rol = user_doc.to_dict().get('rol', 'cliente')
+                    rol = user_doc.to_dict().get('rol', 'comprador')
                 else:
-                    rol = 'cliente'
+                    rol = 'comprador'
             # Usuario
             class FirebaseUser:
                def __init__(self, uid, rol, email):

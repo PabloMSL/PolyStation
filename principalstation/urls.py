@@ -20,7 +20,7 @@ from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshVie
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('apis/', include('gamestation.urls')),
+    path('game/', include('gamestation.urls')),
     path('apis/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('apis/login/refresh', TokenRefreshView.as_view(), name='token_refresh'),
     
